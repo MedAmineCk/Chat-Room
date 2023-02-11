@@ -1,0 +1,255 @@
+//sticky bar for social media
+.social-media-sticky-bar {
+  width: 40px;
+  position: fixed;
+  top: 200px;
+  left: 0;
+  z-index: 99;
+
+  .item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    &.facebook {
+      background: #3b5998;
+
+      &:hover {
+        color: #3b5998;
+        background: #fff;
+      }
+    }
+
+    &.instagram {
+      background: #C13584;
+
+      &:hover {
+        color: #C13584;
+        background: #fff;
+      }
+    }
+
+    &.skype {
+      background: #00AFF0;
+
+      &:hover {
+        color: #00AFF0;
+        background: #fff;
+      }
+    }
+
+    &.minu {
+      color: #000;
+      background: transparent;
+      transition: all .4s ease-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+//******** Def ********//
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.O {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.H {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(46, 67, 255);
+  cursor: pointer;
+}
+
+input,
+button {
+  outline: none;
+}
+
+.input {
+  width: 100%;
+  height: 45px;
+  border: 1px solid #ccc;
+  margin: 5px auto;
+  position: relative;
+  border-radius: 4px;
+
+  label {
+    font-size: 15px;
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 10px;
+    color: #444444;
+    transition: all .15s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  input {
+    position: absolute;
+    z-index: 2;
+    width: 99%;
+    height: 93%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #4c4c4c;
+    margin: 2px;
+  }
+
+  .err {
+    display: none;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: -35px;
+    padding-top: 7px;
+    z-index: 99;
+  }
+}
+
+.domain_container {
+  width: 100%;
+  height: 50px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Akrobat Regular';
+  overflow: hidden;
+  padding: 10px;
+
+  &:hover {
+    border: 1px solid #2196F3;
+  }
+
+  select {
+    width: 100%;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+    text-align: center;
+
+    &:hover {
+      background: #ECEFF1;
+    }
+
+    option {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.description {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  border: 1px solid #ccc;
+
+  label {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 10px;
+    font-size: 18px;
+    color: #4c4c4c;
+    transition: all .15s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    line-height: 35px;
+    font-size: 16px;
+    font-style: italic;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #4285F4;
+    }
+  }
+
+
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+body,
+.scroll {
+  &::-webkit-scrollbar {
+    width: 10px;
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0px 0px 6px rgba(0, 0, 0, .3);
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #b01655;
+  }
+
+}
+
+.scroll-items,
+.items-container {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0px 0px 6px rgba(0, 0, 0, .3);
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+  }
+
+}

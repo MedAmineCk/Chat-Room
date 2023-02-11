@@ -1,0 +1,83 @@
+$colors:(primary: #03A9F4,
+  header: #EDFAFB,
+  border: #e4e4e4,
+  card: #ececec9e,
+  main: #FBFBFB,
+  footer: #d40034,
+  girl: #FF006B,
+  boy: #43BBFF,
+  connected: #7FFF5F,
+  msj-other: #fff,
+  msj-client: #EDFAFB,
+  txt-bg: #f3f3f340);
+$padding: 10px;
+$border: 1px solid #607D8B;
+$border-radius: 4px;
+$header-height: 80px;
+
+@function colors($color-name) {
+  @return map-get($map: $colors, $key: $color-name);
+}
+
+$tablet: 1134px;
+$mobile: 500px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+//animation
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}
+
+@keyframes rubberBand {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1)
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, .75, 1);
+    transform: scale3d(1.25, .75, 1)
+  }
+
+  40% {
+    -webkit-transform: scale3d(.75, 1.25, 1);
+    transform: scale3d(.75, 1.25, 1)
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, .85, 1);
+    transform: scale3d(1.15, .85, 1)
+  }
+
+  65% {
+    -webkit-transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(.95, 1.05, 1)
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, .95, 1)
+  }
+
+  to {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1)
+  }
+}
+
+//******** Fonts ********//
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');

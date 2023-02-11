@@ -1,0 +1,120 @@
+<h1>fill those inputs to registr</h1>
+<div class="input user-name">
+    <label for="user_name">User Name</label>
+    <input type="text" name="user_name" id="user_name" value="">
+    <div class="err">
+        <div class="msg arrow_box">this field is empty</div>
+    </div>
+</div>
+<div class="input password">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" value="">
+    <div class="err">
+        <div class="msg arrow_box">this field is empty</div>
+    </div>
+</div>
+<div class="input city">
+    <label for="city">City</label>
+    <input type="text" name="city" id="city" value="">
+    <div class="err">
+        <div class="msg arrow_box">this field is empty</div>
+    </div>
+</div>
+<div class="input age">
+    <label for="age">Age</label>
+    <input type="text" name="age" id="age" value="">
+    <div class="err">
+        <div class="msg arrow_box">this field is empty</div>
+    </div>
+</div>
+<div class="gender-selector center" data-sex="">
+    <h1>Select your Gender</h1>
+    <div class="items-container">
+        <div class="item girl" data-sex="girl">
+            <div class="checked">
+                <div class="circle"></div>
+            </div>
+            <div class="icon">
+                <img src="img/female.png" alt="">
+            </div>
+            <p>Female</p>
+        </div>
+        <div class="item boy" data-sex="boy">
+            <div class="checked">
+                <div class="circle"></div>
+            </div>
+            <div class="icon">
+                <img src="img/male.png" alt="">
+            </div>
+            <p>Male</p>
+        </div>
+    </div>
+</div>
+<button type="submit" id="sign_up">sign up</button>
+
+<script>
+    $('.input input').focus(function () {
+        $(this).siblings("label").css({
+            'top': '-11px',
+            'font-size': '12px',
+            'background': '#fff',
+            'padding': '2px'
+        });
+        $(this).parent().css({
+            'border': '2px solid #03A9F4'
+        });
+    })
+    $('.input input').focusout(function () {
+        if ($(this).val() !== '') {
+            $(this).parent().css({
+                'border': '1px solid #ccc'
+            });
+            $(this).siblings('.err').css({
+                'display': 'none'
+            })
+        } else {
+            $(this).siblings("label").css({
+                'left': '10px',
+                'top': '10px',
+                'font-size': '18px'
+            });
+            $(this).parent().css({
+                'border': '1px solid #ccc'
+            });
+        }
+    })
+    $('.input input').on('input', function () {
+        $(this).siblings('.err').css({
+            'display': 'none'
+        })
+    });
+
+    $('.gender-selector .item').on('click', function () {
+        $('.gender-selector .item').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('#sign_up').on('click', function () {
+        var user_name = $('#user_name').val();
+        var password = $('#password').val();
+        var city = $('#city').val();
+        var age = $('#age').val();
+        var sex = $('.gender-selector .item.active').data('sex');
+        $.ajax({
+            type: 'POST',
+            url: 'inc/sign_up.php',
+            data: {
+                user_name: user_name,
+                password: password,
+                city: city,
+                age: age,
+                sex: sex
+            },
+            success: function (data) {
+                console.log(data);
+                if (data == 0) {
+                    window.location.replace("index");
+                }
+            }
+        });
+    })
+</script>
